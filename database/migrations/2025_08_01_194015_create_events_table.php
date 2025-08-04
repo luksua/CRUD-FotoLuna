@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->id();
+            $table->id('idEvento');
+            $table->enum('tipoEvento', ['Maternidad', 'Cumpleanos', 'Quince anos', 'Bodas', 'Bautizos', 'Familia', 'Grados', 'Otros']);
             $table->timestamps();
         });
     }
