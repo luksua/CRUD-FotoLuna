@@ -16,10 +16,11 @@ return new class extends Migration
             $table->id('idCliente');
             $table->string('nombreCliente');
             $table->string('apellidoCliente');
-            $table->string('correoCliente');
+            $table->string('correoCliente')->unique();
             $table->string('password');
             $table->string('telefonoCliente');
             $table->string('tipoDocCliente');
+            $table->string('numeroDocCliente')->unique();
             $table->timestamps();
         });
     }

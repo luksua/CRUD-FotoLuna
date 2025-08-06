@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('telefonoEmpleado');
             $table->string('direccion');
             $table->string('tipoDocEmpleado');
-            $table->string('correoEmpleado');
+            $table->string('numeroDocCliente')->unique();
+            $table->string('correoEmpleado')->unique();;
             $table->string('password');
             $table->enum('tipoEmpleado', ['Empleado', 'Admin']);
             $table->enum('genero', ['Femenino', 'Masculino', 'Otro']);
