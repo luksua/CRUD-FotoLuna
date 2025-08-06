@@ -24,7 +24,7 @@ return new class extends Migration {
                 ->onUpdate('cascade');
 
             $table->foreignId('idCitaFK')
-                ->constrained('appointments', 'idCita') // ✅ Tabla correcta
+                ->constrained('appointments', 'idCita')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
