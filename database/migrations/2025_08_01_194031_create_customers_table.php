@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 return new class extends Migration
 {
@@ -12,7 +13,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id();
+            $table->id('idCliente');
+            $table->string('nombreCliente');
+            $table->string('apellidoCliente');
+            $table->string('correoCliente')->unique();
+            $table->string('password');
+            $table->string('telefonoCliente');
+            $table->string('tipoDocCliente');
+            $table->string('numeroDocCliente')->unique();
             $table->timestamps();
         });
     }
