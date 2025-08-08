@@ -8,7 +8,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 py-5 ps-lg-5">
                 <h2 class="mb-4 text-center bg-custom-2">Inicio de Sesión</h2>
-                <form method="POST" action="{{ route('customer.login') }}" id="formRegistro">
+                <form method="POST" action="{{ route('employee.login') }}" id="formRegistro">
                     @csrf
                     <div class="row mb-3 align-items-center">
                         <div class="col-12 col-md-4 texto2">
@@ -16,7 +16,7 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                                name="correoCliente" value="{{ old('email') }}">
+                                name="email" value="{{ old('email') }}">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
