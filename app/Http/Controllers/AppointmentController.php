@@ -20,7 +20,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        //acceder a la vista create.blade.php
+        return view('appointment.create');
     }
 
     /**
@@ -28,7 +29,10 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // este es el metodo que recibe los datos del formulario
+        $appointments = request()->except('__token');
+        Appointment:insert($appointments);
+        return response()->json($appointments);
     }
 
     /**
