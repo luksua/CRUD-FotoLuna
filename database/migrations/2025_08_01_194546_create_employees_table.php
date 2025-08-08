@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('telefonoEmpleado');
             $table->string('foto');
             $table->string('direccion');
-            $table->string('tipoDocEmpleado');
+            $table->enum('tipoDocEmpleado', ['CC', 'CE', 'PAS']);
             $table->string('numeroDocCliente')->unique();
             $table->string('correoEmpleado')->unique();;
             $table->string('password');

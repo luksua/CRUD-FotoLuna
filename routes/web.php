@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -16,6 +16,8 @@ Route::resource('appointment', Appointment::class)->middleware('auth');
 // Login para clientes
 Route::get('/login/customer', [CustomerController::class, 'showLoginForm'])->name('customer.login');
 Route::post('/login/customer', [CustomerController::class, 'login']);
+Route::get('/register/customer', [CustomerController::class, 'showRegisterForm'])->name('customer.register');
+Route::post('/register/customer', [CustomerController::class, 'register']);
 
 // Login para empleados
 Route::get('/login/employee', [EmployeeController::class, 'showLoginForm'])->name('employee.login');

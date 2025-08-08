@@ -3,7 +3,7 @@
     <div class="eslogan-border bg-custom-3">La fotografía recuerda lo que la mente olvida</div>
 
     <div class="d-flex align-items-center">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('welcome') }}">
             <img src="image/logo.jpg" class="logo-img" alt="Logo" />
             <div class="fw-bold bg-custom-6 logo-text">
                 <h1> FotoLuna </h1>
@@ -94,7 +94,7 @@
                 <div class="user-icon mb-4">
                     <i class="bi bi-person-circle"></i>
                 </div>
-                <a href="" class="btn btn-perfil w-100 mb-3">Crear Cuenta</a>
+                <a href="{{ route('customer.register') }}" class="btn btn-perfil w-100 mb-3">Crear Cuenta</a>
                 <a href="{{ route('customer.login') }}" class="btn btn-perfil w-100">Iniciar Sesión</a>
             </div>
             <!-- Parte inferior: dirección -->

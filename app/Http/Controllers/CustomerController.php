@@ -20,9 +20,53 @@ class CustomerController extends Controller
         }
         return back()->withErrors(['email' => 'Credenciales incorrectas']);
     }
+
+    public function register(Request $request)
+    {
+        // Valida los datos 
+        $request->validate([
+            'nombreCliente' => 'required|string|max:255',
+            'apellidoCliente' => 'required|string|max:255',
+            'fotoCliente' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'correoCliente' => 'required|string|email|max:255|unique:customers,correoCliente',
+            'password' => 'required|string|min:6|confirmed',
+            'telefonoCliente' => 'required|string|max:255',
+            'tipoDocCliente' => 'required|in:CC,CE,PAS',
+            'numeroDocCliente' => 'required|string|max:255|unique:customers,numeroDocCliente',
+        ]);
+
+        if ($request->hasFile('fotoCliente')) {
+            $file = $request->file('fotoCliente');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('clientes', $filename, 'public');
+        } else {
+            $path = null;
+        }
+
+        // Crea el cliente
+        $customer = Customer::create([
+            'nombreCliente' => $request->nombreCliente,
+            'apellidoCliente' => $request->apellidoCliente,
+            'fotoCliente' => $path,
+            'correoCliente' => $request->correoCliente,
+            'password' => bcrypt($request->password),
+            'telefonoCliente' => $request->telefonoCliente,
+            'tipoDocCliente' => $request->tipoDocCliente,
+            'numeroDocCliente' => $request->numeroDocCliente,
+        ]);
+
+        // Autentica al cliente
+        Auth::guard('customer')->login($customer);
+
+        return redirect('/');
+    }
     public function showLoginForm()
     {
         return view('auth.login');
+    }
+    public function showRegisterForm()
+    {
+        return view('auth.register');
     }
     public function index()
     {

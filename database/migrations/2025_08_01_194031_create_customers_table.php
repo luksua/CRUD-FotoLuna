@@ -5,8 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,10 +15,11 @@ return new class extends Migration
             $table->id('idCliente');
             $table->string('nombreCliente');
             $table->string('apellidoCliente');
+            $table->string('fotoCliente');
             $table->string('correoCliente')->unique();
             $table->string('password');
             $table->string('telefonoCliente');
-            $table->string('tipoDocCliente');
+            $table->enum('tipoDocCliente', ['CC', 'CE', 'PAS']);
             $table->string('numeroDocCliente')->unique();
             $table->timestamps();
         });
