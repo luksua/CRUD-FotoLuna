@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use App\Models\Event;
+use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
 {
@@ -13,6 +15,15 @@ class AppointmentController extends Controller
     public function index()
     {
         //
+        $citas = DB::table('appointments')
+            ->join('events', 'appointments.idEventoFK', '=', 'events.idEvento')
+            ->select(
+                'appointments.*',
+                'events.tipoEvento' 
+            )
+            ->paginate(10); // <-- paginación
+
+        return view('appointment.index', ['citas' => $citas]);
     }
 
     /**
@@ -21,7 +32,9 @@ class AppointmentController extends Controller
     public function create()
     {
         //acceder a la vista create.blade.php
-        return view('appointment.create');
+        //traer el listado de eventos desde la bd 
+        $eventos = Event::all();
+        return view('appointment.create', ['eventos' => $eventos]);
     }
 
     /**
@@ -30,9 +43,14 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         // este es el metodo que recibe los datos del formulario
-        $appointments = request()->except('__token');
-        Appointment:insert($appointments);
-        return response()->json($appointments);
+        $data = $request->except('_token');
+        $data['idClienteFK'] = auth('customer')->user()->idCliente;
+
+        // Crea la cita
+        $appointment = Appointment::create($data);
+
+        // Redirige o responde según tu necesidad
+        return redirect()->route('appointment.index')->with('success', 'Cita creada correctamente');
     }
 
     /**

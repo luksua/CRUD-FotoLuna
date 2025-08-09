@@ -1,8 +1,7 @@
 <?php
-
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
-use App\Models\Appointment;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,7 +10,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('appointment', Appointment::class)->middleware('auth');
+Route::resource('appointment', AppointmentController::class);
+
+// ->middleware('auth:customer');
 
 // Login para clientes
 Route::get('/login/customer', [CustomerController::class, 'showLoginForm'])->name('customer.login');
