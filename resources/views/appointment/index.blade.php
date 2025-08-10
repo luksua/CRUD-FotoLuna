@@ -6,21 +6,20 @@
 
 @section('main-class', 'container py-5')
 
-@if (Session::has('mensaje'))
-    <div class="alert alert-success text-center mb-4">
-        {{ Session::get('mensaje') }}
-    </div>
-@endif
 
 <div class="container">
     <div class="row justify-content-center">
-        
-            <div class="card shadow border-0">
-                <div class="row text-center">
-                    <div class="col-lg-12 col-md-12 col-sm-12 bg-custom-2 py-5">
-                        <h2 class="mb-4 text-center bg-custom-2">Citas</h2>
-                    </div>
+        <div class="card shadow border-0">
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12 py-5">
+                    <h2 class="mb-4 text-center bg-custom-2 display-5">Citas</h2>
                 </div>
+            </div>
+            @if (Session::has('mensaje'))
+                <div class="alert alert-success alert-dismissible text-center mb-4" role="alert">
+                    {{ Session::get('mensaje') }}
+                </div>
+            @endif
             <div class="row bg-custom-9">
                 <div class="card-body">
                     <div class="d-flex justify-content-end mb-5">
@@ -38,6 +37,7 @@
                                     <th>Fecha</th>
                                     <th>Lugar</th>
                                     <th>Estado</th>
+                                    <th>Accion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,6 +51,16 @@
                                         <td>
 
                                         </td>
+                                        <td>
+                                            <a href="{{ url('/appointment/'.$cita->idCita.'/edit') }}" class="btn custom-upload-btn"> Editar </a>  |
+
+                                            <form action="{{ url('/appointment/'.$cita->idCita) }}" method="POST">
+                                                @csrf
+                                                {{ method_field('DELETE') }}
+                                                <input type="submit" onclick="return confirm('¿Deseas eliminar esta cita?')" class="btn custom2-upload-btn" value="Eliminar">
+                                            </form>
+
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -60,10 +70,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="d-flex justify-content-center mt-3">
-                        {{ $citas->links() }}
-                    </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                {!! $citas->links() !!}
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ class CustomerController extends Controller
         $credentials = $request->only('correoCliente', 'password');
         if (Auth::guard('customer')->attempt($credentials)) {
             // Autenticado como cliente
-            return redirect()->intended('/customer/home');
+            return redirect()->intended('/');
         }
         return back()->withErrors(['email' => 'Credenciales incorrectas']);
     }

@@ -232,12 +232,19 @@ body {
     color: white;
     border: none;
 }
-
+.custom2-upload-btn {
+    background-color: #b37cc5; /* morado */
+    color: white;
+    border: none;
+}
 .custom-upload-btn:hover {
     background-color: #a47ec8;
     color: white;
 }
-
+.custom2-upload-btn:hover {
+    background-color: #876ba0;
+    color: white;
+}
 .upload-icon {
     width: 40px;
 }
@@ -306,4 +313,49 @@ select.form-select {
 .sobremi-img {
     border-radius: 15%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos personalizados para la paginación */
+.pagination {
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    --bs-pagination-bg: #f8f9fa;
+    --bs-pagination-border-color: #C792DF;
+}
+
+.page-item {
+    margin: 0 3px;
+}
+
+.page-link {
+    color: #a47ec8;
+    background-color: #f8f9fa;
+    border: 1px solid #C792DF;
+    border-radius: 7px !important;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.page-link:hover,
+.page-link:focus {
+    color: #fff;
+    background-color: #C792DF;
+    border-color: #a47ec8;
+    box-shadow: 0 2px 8px rgba(199,146,223,0.15);
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #a47ec8;
+    border-color: #a47ec8;
+    box-shadow: 0 2px 8px rgba(199,146,223,0.25);
+}
+
+.page-item.disabled .page-link {
+    color: #ccc;
+    background-color: #f8f9fa;
+    border-color: #eee;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
