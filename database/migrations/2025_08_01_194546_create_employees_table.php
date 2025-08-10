@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nombreEmpleado');
             $table->string('apellidoEmpleado');
             $table->string('telefonoEmpleado');
-            $table->string('foto');
             $table->string('direccion');
             $table->string('tipoDocEmpleado');
             $table->string('numeroDocCliente')->unique();

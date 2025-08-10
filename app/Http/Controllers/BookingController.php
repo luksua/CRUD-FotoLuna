@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class BookingController extends Controller
 {
@@ -20,12 +21,13 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        return view ('booking.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(Request $request)
     {
         //
