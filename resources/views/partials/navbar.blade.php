@@ -3,8 +3,8 @@
     <div class="eslogan-border bg-custom-3">La fotografía recuerda lo que la mente olvida</div>
 
     <div class="d-flex align-items-center">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-            <img src="image/logo.jpg" class="logo-img" alt="Logo" />
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('welcome') }}">
+            <img src="{{ asset('image/logo.jpg') }}" class="logo-img" alt="Logo" />
             <div class="fw-bold bg-custom-6 logo-text">
                 <h1> FotoLuna </h1>
             </div>
@@ -50,7 +50,7 @@
             <li class="nav-item ms-3 d-none d-lg-block">
                 <button class="btn p-0 border-0 bg-transparent" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#perfilMenu" aria-controls="perfilMenu">
-                    <img src="image/perfil.png" class="perfil-img" alt="Perfil" />
+                    <img src="{{ asset('image/perfil.png') }}" class="perfil-img" alt="Perfil" />
                 </button>
             </li>
             <li class="nav-item registro">
@@ -77,7 +77,7 @@
                     <i class="bi bi-person-circle fs-1"></i>
                     <a href="registro.html" class="btn btn-perfil w-100 mb-3">Mi cuenta</a>
                 </div>
-                <a href="{{ route('appointment.create') }}" class="btn btn-perfil2 w-100 mb-3">Citas</a>
+                <a href="{{ route('appointment.index') }}" class="btn btn-perfil2 w-100 mb-3">Citas</a>
                 <a href="" class="btn btn-perfil2 w-100 mb-3">Mis Fotos</a>
                 <a href="" class="btn btn-perfil2 w-100 mb-3">Notificaciones</a>
                 <form method="POST" action="{{ route('logout') }}">
@@ -94,7 +94,7 @@
                 <div class="user-icon mb-4">
                     <i class="bi bi-person-circle"></i>
                 </div>
-                <a href="" class="btn btn-perfil w-100 mb-3">Crear Cuenta</a>
+                <a href="{{ route('customer.register') }}" class="btn btn-perfil w-100 mb-3">Crear Cuenta</a>
                 <a href="{{ route('customer.login') }}" class="btn btn-perfil w-100">Iniciar Sesión</a>
             </div>
             <!-- Parte inferior: dirección -->

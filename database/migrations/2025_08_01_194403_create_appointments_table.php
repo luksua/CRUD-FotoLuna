@@ -23,9 +23,11 @@ return new class extends Migration {
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
-            $table->dateTime('fechaHoraCita');
+            $table->date('fechaCita');
+            $table->time('horaCita');
             $table->string('lugar', 100);
             $table->text('comentario')->nullable();
+            $table->enum('estadoCita', ['Agendada', 'Cancelada', 'Por confirmar', 'Completada', 'Reprogramada']);
 
             $table->timestamps();
         });

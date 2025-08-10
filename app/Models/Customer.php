@@ -12,6 +12,8 @@ class Customer extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    protected $primaryKey = 'idCliente';
+    protected $table = 'customers';
     protected $guard = 'customer';
 
     /**
@@ -20,9 +22,14 @@ class Customer extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nombreCliente',
+        'apellidoCliente',
+        'fotoCliente',
+        'correoCliente',
         'password',
+        'telefonoCliente',
+        'tipoDocCliente',
+        'numeroDocCliente',
     ];
 
     /**
