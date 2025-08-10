@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function login(Request $request)
     {
         $credentials = $request->only('correoCliente', 'password');
@@ -68,6 +68,7 @@ class CustomerController extends Controller
     {
         return view('auth.register');
     }
+
     public function index()
     {
         //

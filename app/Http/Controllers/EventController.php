@@ -12,7 +12,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $listado['event'] = Event::paginate(4);
+        return view('event.index', $listado);
+
     }
 
     /**
@@ -20,7 +22,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('event.create');
     }
 
     /**
@@ -28,7 +30,10 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $datosEvent = request()->all();
+        $datosEvent = request()->except('_token');
+        Event::insert($datosEvent);
+        return redirect('event')->with('mensaje', 'Evento creado con éxito');
     }
 
     /**
@@ -42,24 +47,30 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $event)
+    public function edit($idEvento)
     {
-        //
+        $evento = Event::findOrFail($idEvento);
+        return view('event.update', compact('evento'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $idEvento)
     {
-        //
+        $datos = request()->except(['_token', '_method']);
+        Event::where('idEvento', '=', $idEvento)->update($datos);
+
+        $evento = Event::findOrFail($idEvento);
+        return redirect('event')->with('mensaje', 'Evento actualizado con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Event $event)
+    public function destroy($idEvento)
     {
-        //
+        Event::destroy($idEvento);
+        return redirect('event')->with('mensaje', 'Evento eliminado con éxito');
     }
 }

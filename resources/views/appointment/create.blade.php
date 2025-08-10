@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', 'Citas')
@@ -20,3 +21,4 @@
         </div>
     </div>
 </div>
+

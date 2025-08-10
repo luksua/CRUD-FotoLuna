@@ -32,6 +32,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
+
         //acceder a la vista create.blade.php
         //traer el listado de eventos desde la bd 
         $eventos = Event::all();
@@ -52,6 +53,7 @@ class AppointmentController extends Controller
 
         // Redirige o responde según tu necesidad
         return redirect('appointment')->with('mensaje', 'Cita creada correctamente');
+
     }
 
     /**
