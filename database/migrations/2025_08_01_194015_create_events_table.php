@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id('idEvento');
-            $table->string('tipoEvento');
+            $table->enum('tipoEvento', ['Maternidad', 'Cumpleanos', 'Quince anos', 'Bodas', 'Bautizos', 'Familia', 'Grados', 'Otros']);
             $table->timestamps();
         });
     }
@@ -21,8 +21,6 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    //  * Reverse the migrations.
-    //  */
     public function down(): void
     {
         Schema::dropIfExists('events');
