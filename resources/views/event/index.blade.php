@@ -10,12 +10,12 @@
                     <h2 class="mb-4 text-center bg-custom-2 display-5">Eventos</h2>
                 </div>
             </div>
-
-            <div class="alert alert-success alert-dismissible text-center mb-4" role="alert">
-                @if (Session::has('mensaje'))
+            @if (Session::has('mensaje'))
+                <div class="alert alert-success alert-dismissible text-center mb-4" role="alert">
                     {{ Session::get('mensaje') }}
-                @endif
-            </div>
+                </div>
+            @endif
+
 
             <div class="row bg-custom-9">
                 <div class="card-body">
@@ -35,24 +35,25 @@
                             </thead>
                             <tbody>
                                 @forelse ($event as $datos)
-                                <tr>
-                                    <td>{{ $datos->idEvento}}</td>
-                                    <td>{{ $datos->tipoEvento}}</td>
-                                    <td>
-                                        <a href="{{ url('/event/' . $datos->idEvento . '/edit') }}"
-                                            class="btn custom-upload-btn d-inline"> Editar </a> |
-                                            <form action="{{ url('/event/' . $datos->idEvento) }}" method="post" class="d-inline">
+                                    <tr>
+                                        <td>{{ $datos->idEvento}}</td>
+                                        <td>{{ $datos->tipoEvento}}</td>
+                                        <td>
+                                            <a href="{{ url('/event/' . $datos->idEvento . '/edit') }}"
+                                                class="btn custom-upload-btn d-inline"> Editar </a> |
+                                            <form action="{{ url('/event/' . $datos->idEvento) }}" method="post"
+                                                class="d-inline">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <input type="submit" onclick="return confirm('¿Borrar?')" value="Borrar"
                                                     class="btn custom2-upload-btn">
-                                        </form>
-                                    </td>
-                                </tr>
+                                            </form>
+                                        </td>
+                                    </tr>
                                 @empty
-                                <tr>
-                                    <td colspan="6" class="text-center text-muted">No hay eventos registrados.</td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted">No hay eventos registrados.</td>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>
@@ -61,4 +62,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
