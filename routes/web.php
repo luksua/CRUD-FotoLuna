@@ -1,13 +1,7 @@
 <?php
-
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
-
-
-use App\Http\Controllers\EventController;
-// use App\Http\Controllers\BookingController;
-
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +9,6 @@ Route::get('/', function () {
 })->name('welcome');
 
 Auth::routes();
-
 
 Route::resource('appointment', AppointmentController::class);
 
@@ -27,17 +20,6 @@ Route::post('/login/customer', [CustomerController::class, 'login']);
 Route::get('/register/customer', [CustomerController::class, 'showRegisterForm'])->name('customer.register');
 Route::post('/register/customer', [CustomerController::class, 'register']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/event', function (){
-    return view('event.index');
-});
-
-Route::resource('event', EventController::class);
-
-// Route::get('/booking', function () {
-//     return view('booking.index');
-// });
-
-
-// Route::resource('booking', BookingController::class);
+// Login para empleados
+Route::get('/login/employee', [EmployeeController::class, 'showLoginForm'])->name('employee.login');
+Route::post('/login/employee', [EmployeeController::class, 'login']);
