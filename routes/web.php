@@ -2,6 +2,8 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UsersController;   
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,3 +28,7 @@ Route::post('/login/employee', [EmployeeController::class, 'login']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Rutas para la gestión de usuarios
+Route::resource('users', UsersController::class);
+Route::resource('event', EventController::class);
