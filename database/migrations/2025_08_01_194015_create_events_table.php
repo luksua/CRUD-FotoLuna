@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id('idEvento');
-            $table->enum('tipoEvento', ['Maternidad', 'Cumpleanos', 'Quince anos', 'Bodas', 'Bautizos', 'Familia', 'Grados', 'Otros']);
+            $table->string('tipoEvento');
             $table->timestamps();
         });
     }
