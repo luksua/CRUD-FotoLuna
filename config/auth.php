@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -39,12 +41,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
-        // Agrega esta guardia para clientes
         'customer' => [
             'driver' => 'session',
             'provider' => 'customers',
         ],
+        'employee' => [
+            'driver' => 'session',
+            'provider' => 'employees',
+        ]
     ],
 
     /*
@@ -69,12 +73,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // Agrega este provider para clientes
         'customers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
         ],
+        'employees' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Employee::class,
+        ]
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*
@@ -104,6 +114,7 @@ return [
             'throttle' => 60,
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
