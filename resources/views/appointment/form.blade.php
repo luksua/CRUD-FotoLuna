@@ -20,7 +20,7 @@
     </div>
     <div class="col-12 col-md-8">
         <input type="time" class="form-control @error('hora') is-invalid @enderror" id="hora" name="horaCita"
-            value="{{ isset($appointment->HoraCita) ? $appointment->HoraCita : old('hora') }}" required>
+            value="{{ isset($appointment->horaCita) ? $appointment->horaCita : old('hora') }}" required>
         @error('hora')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
