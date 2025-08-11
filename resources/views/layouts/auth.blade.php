@@ -51,9 +51,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="inicio.html">Inicio</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="servicios.html">Usuarios</a>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="contacto.html">Contacto</a>
                 </li>

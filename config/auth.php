@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -71,7 +72,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
         'customers' => [
             'driver' => 'eloquent',
@@ -128,4 +129,5 @@ return [
     */
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
+
 ];
