@@ -45,16 +45,16 @@
                                     <tr>
                                         <td>{{ $cita->idCita }}</td>
                                         <td>{{ $cita->tipoEvento }}</td>
-                                        <td>{{ $cita->HoraCita }}</td>
+                                        <td>{{ $cita->horaCita }}</td>
                                         <td>{{ $cita->fechaCita }}</td>
                                         <td>{{ $cita->lugar }}</td>
                                         <td>
 
                                         </td>
                                         <td>
-                                            <a href="{{ url('/appointment/'.$cita->idCita.'/edit') }}" class="btn custom-upload-btn"> Editar </a>  |
+                                            <a href="{{ url('/appointment/'.$cita->idCita.'/edit') }}" class="btn custom-upload-btn d-inline"> Editar </a>  |
 
-                                            <form action="{{ url('/appointment/'.$cita->idCita) }}" method="POST">
+                                            <form action="{{ url('/appointment/'.$cita->idCita) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <input type="submit" onclick="return confirm('¿Deseas eliminar esta cita?')" class="btn custom2-upload-btn" value="Eliminar">
