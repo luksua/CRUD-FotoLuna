@@ -2,10 +2,8 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\UsersController;   
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,15 +25,14 @@ Route::post('/register/customer', [CustomerController::class, 'register']);
 Route::get('/login/employee', [EmployeeController::class, 'showLoginForm'])->name('employee.login');
 Route::post('/login/employee', [EmployeeController::class, 'login']);
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Rutas para la gestión de usuarios
-Route::resource('users', UsersController::class);
-Route::resource('event', EventController::class);
 
 Route::get('/event', function (){
     return view('event.index');
 });
 
 Route::resource('event', EventController::class);
+
 
