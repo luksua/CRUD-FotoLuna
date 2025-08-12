@@ -78,7 +78,7 @@
                     <a href="registro.html" class="btn btn-perfil w-100 mb-3">Mi cuenta</a>
                 </div>
                 <a href="{{ route('appointment.index') }}" class="btn btn-perfil2 w-100 mb-3">Citas</a>
-                <a href="{{ route('event.index') }}" class="btn btn-perfil2 w-100 mb-3">Citas</a>
+                <a href="{{ route('event.index') }}" class="btn btn-perfil2 w-100 mb-3">Eventos</a>
                 <a href="<!-- aqui ruta usuarios -->" class="btn btn-perfil2 w-100 mb-3">Usuarios</a>
                 <a href="" class="btn btn-perfil2 w-100 mb-3">Mis Fotos</a>
                 <a href="" class="btn btn-perfil2 w-100 mb-3">Notificaciones</a>
