@@ -11,11 +11,13 @@
                 </div>
             </div>
 
-            <div class="alert alert-success alert-dismissible text-center mb-4" role="alert">
+            
                 @if (Session::has('mensaje'))
-                    {{ Session::get('mensaje') }}
+                    <div class="alert alert-success alert-dismissible text-center mb-4" role="alert">
+                        {{ Session::get('mensaje') }}
+                    </div>
                 @endif
-            </div>
+            
 
             <div class="row bg-custom-9">
                 <div class="card-body">
